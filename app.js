@@ -7,41 +7,39 @@ const conversationData = {
     ],
     
     responses: {
-        stress: [
-            "I hear that you're feeling stressed right now. That's completely understandable - stress is a natural response to challenging situations. On a scale of 1-10, how would you rate your stress level? And would you like to try a quick breathing exercise that might help?",
-            "Thank you for sharing that you're feeling stressed. Stress can feel overwhelming, but there are ways to manage it. Let's try a grounding technique - can you name 5 things you can see around you right now?"
-        ],
-        
-        anxiety: [
-            "Thank you for sharing that with me. Anxiety can feel really overwhelming, but you're not alone in this. I'm here to support you. Let's try a grounding technique - can you name 5 things you can see around you right now?",
-            "I understand that anxiety can be really challenging. It takes courage to reach out. Would you like to try some breathing exercises together? Sometimes slowing down our breath can help calm our nervous system."
-        ],
-        
-        sad: [
-            "I'm sorry you're feeling sad right now. It's okay to feel this way - sadness is a natural human emotion. Would you like to talk about what's contributing to these feelings? I'm here to listen.",
-            "Thank you for trusting me with how you're feeling. Sadness can be heavy to carry. Remember that it's okay to not be okay sometimes. What usually helps you feel a little better when you're sad?"
-        ],
-        
-        sleep: [
-            "Sleep difficulties can be really challenging and affect how we feel during the day. I notice this might be impacting your well-being. Would you like me to guide you through some relaxation techniques that might help prepare your mind for rest?",
-            "I understand how frustrating sleep problems can be. Good sleep is so important for our mental health. Let's explore some sleep hygiene tips that might help. What does your bedtime routine usually look like?"
-        ],
-        
-        crisis: [
-            "I want you to know that you matter and your life has value. If you're having thoughts of self-harm or suicide, please reach out to a crisis helpline immediately. In the US, you can call 988 for the Suicide & Crisis Lifeline. If this is an emergency, please call 911 or go to your nearest emergency room. I'm here to support you, but professional help is important right now."
-        ],
-        
-        positive: [
-            "I'm so glad to hear you're feeling good today! It's wonderful that you're taking time to check in with yourself. What's contributing to these positive feelings? Sometimes it helps to recognize what's working well.",
-            "That's fantastic! I love hearing when someone is doing well. It's important to celebrate these moments. What's been going well for you lately?"
-        ],
-        
-        default: [
-            "Thank you for sharing that with me. I'm here to listen and support you. Can you tell me more about how you're feeling right now?",
-            "I appreciate you opening up. Sometimes it helps just to put our thoughts into words. What would be most helpful for you right now?",
-            "I hear you. It sounds like you have a lot on your mind. Would you like to explore any particular aspect of what you're experiencing?",
-            "That sounds important. I'm here to support you through whatever you're going through. What feels most pressing for you today?"
+        async function respondToUser(input) {
+  displayMessage("Typing...", "bot"); // temp message
+
+  try {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearersk-proj-Yg8XCg-fyovMc77LS_SR08vQaWfgDlZEJ78Ce-665mmYqAE7chiUrKGOhPd8EN1U1yyA_CWGpOT3BlbkFJ-tmr0Rc3K-cnpLXcoI-lZxEotVYctz7-bl_VDk8aV00tBw-qKjrCqR1SaD6XW4ToNnQOv4X8gA ", // Replace this line
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [
+          { role: "system", content: "You are a friendly mental health chatbot offering empathy and support." },
+          { role: "user", content: input }
         ]
+      })
+    });
+
+    const data = await response.json();
+    const reply = data.choices?.[0]?.message?.content || "Sorry, I couldn't understand that.";
+
+    // Remove 'Typing...' and show real message
+    document.querySelector(".bot-message:last-child").remove();
+    displayMessage(reply, "bot");
+
+  } catch (error) {
+    displayMessage("⚠ Error talking to ChatGPT. Please try again later.", "bot");
+  }
+}
+        
+        
+       
     },
     
     techniques: [
