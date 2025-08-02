@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCompanion - Your Friendly Mental Health Chat Companion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">MindCompanion</h1>
+                <p class="hero-subtitle">Your Friendly Mental Health Chat Companion</p>
+                <p class="hero-description">An empathetic AI companion providing 24/7 mental health support through conversational therapy, mood tracking, and personalized wellness guidance.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn--primary btn--lg" id="try-demo-btn">Try Interactive Demo</button>
+                    <button class="btn btn--outline btn--lg" id="view-features-btn">View Features</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/f3604f0a-7cce-4dc4-9038-a7321baf6b9b.png" alt="Mental health chatbot interface mockup" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Addressing the Mental Health Crisis</h2>
+                <p>With 1 in 4 people experiencing mental health challenges, accessible support is more crucial than ever.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>The Problem</h3>
+                    <p>Limited access to mental health professionals, high costs, stigma, and the need for immediate support create barriers to mental wellness.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Our Solution</h3>
+                    <p>An AI-powered companion that provides immediate, empathetic support with therapeutic techniques, crisis detection, and seamless professional referrals.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Impact Goal</h3>
+                    <p>Making mental health support accessible 24/7, reducing barriers to care, and providing a safe space for emotional well-being.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Chatbot Demo Modal -->
+    <div class="modal hidden" id="chatbot-modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>MindCompanion Demo</h3>
+                <button class="modal-close" id="close-modal">×</button>
+            </div>
+            <div class="chat-container">
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message bot-message">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <p>Hello! I'm your friendly mental health companion. I'm here to listen and support you. How are you feeling today?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" class="chat-input" id="chat-input" placeholder="Type your message here..." maxlength="200">
+                    <button class="chat-send-btn" id="send-btn">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Comprehensive Mental Health Support</h2>
+                <p>Five core categories of features designed to provide holistic mental wellness support</p>
+            </div>
+            
+            <div class="features-visual">
+                <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/1ca437502d179981aa427e4bbdaf0566/557abff6-13b1-474d-8c82-a2141b44d657/f0002673.png" alt="Feature distribution chart" class="feature-chart">
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card" data-category="core">
+                    <div class="feature-icon">💝</div>
+                    <h3>Core Features</h3>
+                    <p>Essential functionality for everyday mental health support</p>
+                    <div class="feature-details hidden">
+                        <ul>
+                            <li>Empathetic conversation engine</li>
+                            <li>24/7 availability</li>
+                            <li>Crisis detection and response</li>
+                            <li>Mood tracking and analytics</li>
+                            <li>Personalized recommendations</li>
+                        </ul>
+                    </div>
+                    <button class="feature-toggle">Learn More</button>
+                </div>
+
+                <div class="feature-card" data-category="therapeutic">
+                    <div class="feature-icon">🧘</div>
+                    <h3>Therapeutic Techniques</h3>
+                    <p>Evidence-based therapeutic approaches and coping strategies</p>
+                    <div class="feature-details hidden">
+                        <ul>
+                            <li>Cognitive Behavioral Therapy (CBT) modules</li>
+                            <li>Mindfulness and meditation guidance</li>
+                            <li>Breathing exercises</li>
+                            <li>Stress management tools</li>
+                            <li>Coping strategy suggestions</li>
+                        </ul>
+                    </div>
+                    <button class="feature-toggle">Learn More</button>
+                </div>
+
+                <div class="feature-card" data-category="experience">
+                    <div class="feature-icon">✨</div>
+                    <h3>User Experience</h3>
+                    <p>Intuitive and engaging interface designed for comfort</p>
+                    <div class="feature-details hidden">
+                        <ul>
+                            <li>Intuitive chat interface</li>
+                            <li>Voice input support</li>
+                            <li>Customizable personality</li>
+                            <li>Progress visualization</li>
+                            <li>Gamification elements</li>
+                        </ul>
+                    </div>
+                    <button class="feature-toggle">Learn More</button>
+                </div>
+
+                <div class="feature-card" data-category="safety">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Safety & Privacy</h3>
+                    <p>Robust security measures protecting user confidentiality</p>
+                    <div class="feature-details hidden">
+                        <ul>
+                            <li>End-to-end encryption</li>
+                            <li>Anonymous usage option</li>
+                            <li>HIPAA compliance</li>
+                            <li>Data minimization</li>
+                            <li>User consent management</li>
+                        </ul>
+                    </div>
+                    <button class="feature-toggle">Learn More</button>
+                </div>
+
+                <div class="feature-card" data-category="integration">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Integration & Connectivity</h3>
+                    <p>Seamless connections with healthcare systems and resources</p>
+                    <div class="feature-details hidden">
+                        <ul>
+                            <li>Emergency service integration</li>
+                            <li>Healthcare provider connectivity</li>
+                            <li>Wearable device integration</li>
+                            <li>Calendar and reminder system</li>
+                            <li>Resource library access</li>
+                        </ul>
+                    </div>
+                    <button class="feature-toggle">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline" id="timeline">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hackathon Development Timeline</h2>
+                <p>48-72 hour structured development approach for maximum impact</p>
+            </div>
+            
+            <div class="timeline-visual">
+                <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/1ca437502d179981aa427e4bbdaf0566/feeffb86-755b-464a-aa94-152e4293839f/1c349487.png" alt="Hackathon timeline Gantt chart" class="timeline-chart">
+            </div>
+
+            <div class="timeline-phases">
+                <div class="phase-card">
+                    <div class="phase-number">1</div>
+                    <h3>Planning & Setup (0-6h)</h3>
+                    <p>Project plan, wireframes, tech setup</p>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">2</div>
+                    <h3>Core Development (6-18h)</h3>
+                    <p>Basic chatbot functionality, UI framework</p>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">3</div>
+                    <h3>Feature Implementation (18-30h)</h3>
+                    <p>Advanced features, AI integration</p>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">4</div>
+                    <h3>Testing & Integration (30-42h)</h3>
+                    <p>Bug fixes, security implementation</p>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">5</div>
+                    <h3>Polish & Documentation (42-48h)</h3>
+                    <p>Demo preparation, documentation</p>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">6</div>
+                    <h3>Presentation Prep (48-72h)</h3>
+                    <p>Pitch deck, live demo practice</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="tech-stack" id="tech-stack">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technology Architecture</h2>
+                <p>Modern, scalable technology stack for robust mental health platform</p>
+            </div>
+            
+            <div class="tech-categories">
+                <div class="tech-category">
+                    <h3>Frontend</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Vue.js</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Backend</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Python (Django/Flask)</span>
+                        <span class="tech-tag">Java (Spring)</span>
+                        <span class="tech-tag">C# (.NET)</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>AI/ML</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">GPT-4/ChatGPT API</span>
+                        <span class="tech-tag">Google Dialogflow</span>
+                        <span class="tech-tag">Rasa</span>
+                        <span class="tech-tag">Wit.ai</span>
+                        <span class="tech-tag">Azure Bot Framework</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Database</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Amazon DynamoDB</span>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Cloud Services</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Google Cloud</span>
+                        <span class="tech-tag">Azure</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hackathon Team</h2>
+                <p>Passionate developers, designers, and mental health advocates working together</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">👩‍💻</div>
+                    <h3>Sarah Chen</h3>
+                    <p class="member-role">Lead Developer & AI Specialist</p>
+                    <p class="member-bio">Full-stack developer with expertise in conversational AI and machine learning</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-avatar">👨‍🎨</div>
+                    <h3>Marcus Rodriguez</h3>
+                    <p class="member-role">UX/UI Designer</p>
+                    <p class="member-bio">Design expert focused on creating empathetic and accessible user experiences</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-avatar">👩‍⚕️</div>
+                    <h3>Dr. Emily Watson</h3>
+                    <p class="member-role">Mental Health Consultant</p>
+                    <p class="member-bio">Clinical psychologist ensuring therapeutic accuracy and ethical guidelines</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-avatar">👨‍💼</div>
+                    <h3>Alex Kim</h3>
+                    <p class="member-role">Product Strategy & Security</p>
+                    <p class="member-bio">Product manager specializing in healthcare technology and data privacy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Mental Health Support?</h2>
+                <p>Join us in making mental wellness accessible to everyone, everywhere.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn--primary btn--lg" id="demo-cta-btn">Try Live Demo</button>
+                    <a href="#" target="_blank" class="btn btn--outline btn--lg">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>MindCompanion</h4>
+                    <p>Your friendly mental health chat companion, built with empathy and care.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <p>Crisis Support: Call 988 (US)</p>
+                    <p>Emergency: Call 911</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Hackathon Project</h4>
+                    <p>Built for mental health awareness and accessible care innovation.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MindCompanion Hackathon Team. Built with care for mental wellness.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
