@@ -40,7 +40,7 @@ const conversationData = {
         
         
        
-    },
+    };
     
     techniques: [
         "Here's a simple breathing exercise: Breathe in for 4 counts, hold for 4, then exhale for 6. This can help activate your body's relaxation response.",
